@@ -1,62 +1,57 @@
 // LoginForm.tsx
 import React, { useState } from 'react';
-import { login } from '../services/authService'; // Ajusta la ruta de importación según sea necesario
+import { login } from '../services/authService'; // Asegúrate de que la ruta de importación sea correcta
 import './styles/logginForm.css'
-
+import { useNavigate } from 'react-router-dom';
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
       const response = await login(username, password);
-      sessionStorage.setItem('sessionJWTToken', response.data.token); // Guarda el token en sessionStorage
-      // Aquí puedes redirigir al usuario o hacer algo más después del inicio de sesión exitoso
+      sessionStorage.setItem('sessionJWTToken', response.data.token);
+      navigate('/users');
+      // Redireccionar o manejar el inicio de sesión exitoso aquí
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
-      // Manejo de errores de inicio de sesión
+      // Manejar error de inicio de sesión
     }
   };
 
   return (
-    <div className="wrapper fadeInDown">
-      <div id="formContent">
-        {/* Tabs Titles */}
-        <h2 className="active"> Sign In </h2>
-        <h2 className="inactive underlineHover">Sign Up </h2>
+    <div className="login">
 
-        {/* Icon */}
-        <div className="fadeIn first">
-          {/* Aquí puedes colocar un ícono o imagen si es necesario */}
-        </div>
-
-        {/* Login Form */}
-        <form onSubmit={handleSubmit}>
-          <input 
-            type="text" 
-            id="login" 
-            className="fadeIn second" 
-            placeholder="Username"
+      <form className="box" onSubmit={handleSubmit}>
+        <div className="log-in-form">
+          <div className="overlap-group">
+            <div className="container" />
+            <div className="signin-title">Sign In</div>
+            <div className="signup-title">Sign Up</div>
+            <div className="separator"/>
+            <div className="username-title">username</div>
+            <input
+            className="username-input"
+            type='text'
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
-          <input 
-            type="password" 
-            id="password" 
-            className="fadeIn third" 
-            placeholder="Password"
+            />
+            <div className="password-title">password</div>
+            <input 
+            className="password-input"
+            type='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-          />
-          <input type="submit" className="fadeIn fourth" value="Log In" />
-        </form>
-
-        {/* Remind Password */}
-        <div id="formFooter">
-          <a className="underlineHover" href="#">Forgot Password?</a>
+            />
+            <button className="login-button">Sign In</button>
+            <div className="forgot-password">forgot password?</div>
+          </div>
         </div>
-      </div>
+      </form>
+
+      
+     
     </div>
   );
 };
