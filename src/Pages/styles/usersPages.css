@@ -1,0 +1,103 @@
+.UsersPage-box {
+  height: 244px;
+  width: 597px;
+}
+
+.UsersPage-box .UsersPage-user-page {
+  height: 244px;
+  left: 0;
+  top: 0;
+  width: 605px;
+}
+
+.UsersPage-box .UsersPage-overlap-group {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 244px;
+  position: relative;
+  width: 597px;
+}
+
+.UsersPage-box .UsersPage-username-value {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  height: 45px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 21px;
+  width: 597px;
+}
+
+.UsersPage-box .UsersPage-oid-value {
+  color: #7c7c7c;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  height: 19px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 78px;
+  white-space: nowrap;
+  width: 597px;
+}
+
+.UsersPage-box .UsersPage-email-icon {
+  height: 50px;
+  left: 71px;
+  position: absolute;
+  top: 134px;
+  width: 50px;
+}
+
+.UsersPage-box .UsersPage-location-icon {
+  height: 50px;
+  left: 337px;
+  position: absolute;
+  top: 134px;
+  width: 50px;
+}
+
+.UsersPage-box .UsersPage-email-value {
+  color: #7c7c7c;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 132px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 147px;
+  width: 173px;
+}
+
+.UsersPage-box .UsersPage-address-value {
+  color: #7c7c7c;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 387px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 147px;
+  width: 196px;
+}
+
+
+  
+  .UsersPage-title {
+    font-size: 3rem; /* Tamaño grande de fuente */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centra horizontalmente */
+    color: #333; /* Color del texto */
+    /* Otros estilos llamativos pueden ser agregados según tus preferencias */
+  }
+  

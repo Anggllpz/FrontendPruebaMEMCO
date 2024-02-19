@@ -4,7 +4,7 @@ import { getAllUsers } from '../services/usersService';
 import { User } from '../utils/types/User.type'; // Asegúrate de que la ruta de importación sea correcta
 import { AxiosResponse } from 'axios';
 import ResponsiveAppBar from '../components/MenuLateral';
-
+import './styles/usersPages.css'
 const UsersPage = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -33,31 +33,24 @@ const UsersPage = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <div className="UsersPage-container">
         <ResponsiveAppBar />
-      <h1>Users</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Email</th>
-            <th>Address</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.username}</td>
-              <td>{user.password}</td>
-              <td>{user.email}</td>
-              <td>{user.address}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h1 className='UsersPage-title'>Users</h1>
+      <div  className="UsersPage-box">
+      {users.map((user) => (
+            <div key={user.id} className="UsersPage-user-page">
+              <div className="UsersPage-overlap-group">
+                <div className="UsersPage-username-value">{user.username || 'N/A'}</div>
+                <div className="UsersPage-oid-value">{user.id || 'N/A'}</div>
+                <img className="UsersPage-email-icon" alt="Email icon" src="email-icon.png" />
+                <img className="UsersPage-location-icon" alt="Location icon" src="location-icon.png" />
+                <div className="UsersPage-email-value">{user.email || 'N/A'}</div> {/* Mostrar "N/A" si el correo electrónico está ausente */}
+                <div className="UsersPage-address-value">{user.address || 'N/A'}</div> {/* Mostrar "N/A" si la dirección está ausente */}
+              </div>
+            </div>
+        ))}
+        </div>
+
     </div>
   );
 };
